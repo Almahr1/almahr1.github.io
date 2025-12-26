@@ -7,14 +7,14 @@
     <style>
         /* Nord Color Palette */
         :root {
-            --nord0: #2E3440;
+            --nord0: #2E3440; /* Polar Night */
             --nord1: #3B4252;
             --nord2: #434C5E;
             --nord3: #4C566A;
-            --nord4: #D8DEE9;
+            --nord4: #D8DEE9; /* Snow Storm */
             --nord5: #E5E9F0;
             --nord6: #ECEFF4;
-            --nord7: #8FBCBB;
+            --nord7: #8FBCBB; /* Frost */
             --nord8: #88C0D0;
             --nord9: #81A1C1;
             --nord10: #5E81AC;
@@ -31,7 +31,7 @@
             background-color: var(--nord0);
             color: var(--nord4);
             line-height: 1.6;
-            text-align: center; /* Centering everything */
+            text-align: center;
         }
 
         /* Layout Container */
@@ -58,7 +58,7 @@
             margin-bottom: 2rem;
             color: var(--nord8);
             border-bottom: 2px solid var(--nord3);
-            display: inline-block; /* Keeps border width to text width */
+            display: inline-block;
             padding-bottom: 0.5rem;
         }
 
@@ -81,6 +81,31 @@
 
         a:hover {
             color: var(--nord7);
+        }
+
+        /* Navigation Bar */
+        nav {
+            margin-top: 1.5rem;
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+        }
+
+        nav a {
+            color: var(--nord4);
+            font-size: 1.1rem;
+            padding-bottom: 0.2rem;
+        }
+
+        nav a:hover {
+            color: var(--nord8);
+            border-bottom: 2px solid var(--nord8);
+        }
+
+        nav a.active {
+            color: var(--nord8);
+            border-bottom: 2px solid var(--nord8);
+            font-weight: 600;
         }
 
         /* Header Section */
@@ -122,7 +147,7 @@
 
         .tech-stack {
             display: flex;
-            justify-content: center; /* Center the tags */
+            justify-content: center;
             gap: 0.5rem;
             margin-bottom: 1rem;
             flex-wrap: wrap;
@@ -134,7 +159,7 @@
             background-color: var(--nord2);
             color: var(--nord6);
             padding: 0.25rem 0.75rem;
-            border-radius: 50px; /* Pill shape */
+            border-radius: 50px;
         }
 
         /* Footer */
@@ -155,6 +180,12 @@
             display: flex;
             gap: 1.5rem;
         }
+        
+        .license {
+            font-size: 0.8rem;
+            max-width: 80%;
+            line-height: 1.4;
+        }
     </style>
 </head>
 <body>
@@ -163,6 +194,12 @@
             <h1>Omar Ziad Almahri</h1>
             <div class="subtitle">Student & Code Tinkerer</div>
             <div class="location">Abu Dhabi, UAE • Grade 12 Elite Stream</div>
+
+            <nav>
+                <a href="index.html" class="active">Home</a>
+                <a href="updates.html">Updates</a>
+                <a href="now.html">Now</a>
+            </nav>
         </header>
 
         <section id="about">
@@ -231,7 +268,12 @@
                 <a href="https://linkedin.com/in/YOUR_LINKEDIN">LinkedIn</a>
                 <a href="mailto:YOUR_EMAIL@EXAMPLE.COM">Email</a>
             </div>
+            
             <div>&copy; 2025 Omar Ziad Almahri</div>
+            
+            <div class="license">
+                The content of this site is CC BY-SA 4.0. The code of this site is BSD 2-Clause.
+            </div>
         </footer>
     </div>
 </body>
