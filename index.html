@@ -134,10 +134,19 @@
         
         /* New GIF Container */
         .gif-container {
-            width: 60px; /* Constrain the GIF size */
-            height: auto;
+            /* Increased size for better visibility */
+            width: 80px; 
+            height: 80px;
             display: flex;
             align-items: center;
+            justify-content: center;
+        }
+        
+        .gif-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 8px; /* Optional: rounds the corners of the gif */
         }
 
         .subtitle {
@@ -225,18 +234,25 @@
             border-radius: 8px;
         }
 
+        /* Updated Extra Info Styling */
         .extra-info {
             text-align: left;
             font-size: 0.9rem;
             color: var(--nord4);
             border-left: 2px solid var(--nord9);
             padding-left: 1rem;
+            line-height: 1.5;
         }
 
         .extra-info strong {
             color: var(--nord8);
             display: block;
-            margin-bottom: 0.2rem;
+            margin-bottom: 0.1rem;
+            margin-top: 0.8rem;
+        }
+        
+        .extra-info strong:first-child {
+            margin-top: 0;
         }
 
         .card-center {
@@ -314,10 +330,7 @@
                 <h1>Omar Ziad Almahri</h1>
 
                 <div class="gif-container">
-                    <div class="tenor-gif-embed" data-postid="1281650104235604414" data-share-method="host" data-aspect-ratio="1.4966" data-width="100%">
-                        <a href="https://tenor.com/view/minecraft-minecraft-meme-minecraft-movie-steve-minecraft-spinning-gif-1281650104235604414">Minecraft Minecraft Meme Sticker</a> from <a href="https://tenor.com/search/minecraft-stickers">Minecraft Stickers</a>
-                    </div> 
-                    <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+                    <img src="https://media.tenor.com/tC71Wav8I8cAAAAi/minecraft-minecraft-meme.gif" alt="Minecraft Steve Spinning">
                 </div>
             </div>
             
@@ -373,9 +386,9 @@
 
                     <div class="card-right">
                         <div class="extra-info">
-                            <p><strong>Architecture:</strong><br>32-bit x86 Kernel</p>
-                            <p><strong>Memory:</strong><br>Virtual Memory Manager</p>
-                            <p><strong>System:</strong><br>Custom Standard Library</p>
+                            <p><strong>Project Type:</strong><br>Monolithic Kernel</p>
+                            <p><strong>Core Focus:</strong><br>Memory Management</p>
+                            <p><strong>Key Mechanism:</strong><br>Ephemeral File Storage</p>
                         </div>
                     </div>
                 </article>
@@ -395,7 +408,7 @@
                         </div>
                         <p>
                             A heavy-duty web crawler. I built it to handle thousands of pages without crashing. 
-                            It uses Simhash to spot duplicate content and respects rate limits so it doesn't get blocked.
+                            It uses content fingerprinting to spot duplicate content and respects rate limits so it doesn't get blocked.
                         </p>
                         <a href="https://github.com/almahr1/quert" onclick="event.stopPropagation()">Check out the code &rarr;</a>
                         <div class="click-hint">(Click card to expand)</div>
@@ -403,9 +416,9 @@
 
                     <div class="card-right">
                         <div class="extra-info">
-                            <p><strong>Concurrency:</strong><br>Parallel Worker Pool</p>
-                            <p><strong>Efficiency:</strong><br>Content Deduplication</p>
-                            <p><strong>Reliability:</strong><br>Polite Rate Limiting</p>
+                            <p><strong>Architecture:</strong><br>Parallel Worker Pool</p>
+                            <p><strong>Optimization:</strong><br>Duplicate Detection</p>
+                            <p><strong>Reliability:</strong><br>Fault-Tolerant Pipeline</p>
                         </div>
                     </div>
                 </article>
@@ -424,8 +437,8 @@
                             <span class="tech-tag">Gap Buffer</span>
                         </div>
                         <p>
-                            A text editor I made because I wanted to understand how they work. It uses a Gap Buffer 
-                            structure for fast typing and has a custom undo/redo stack. Simple, fast, and works in the terminal.
+                            A text editor I made because I wanted to understand how they work. It uses optimized data
+                            structures for fast typing and has a custom undo/redo stack. Simple, fast, and works in the terminal.
                         </p>
                         <a href="https://github.com/almahr1/ben" onclick="event.stopPropagation()">Check out the code &rarr;</a>
                         <div class="click-hint">(Click card to expand)</div>
@@ -433,8 +446,8 @@
 
                     <div class="card-right">
                         <div class="extra-info">
-                            <p><strong>Responsiveness:</strong><br>Instant Input Handling</p>
-                            <p><strong>Features:</strong><br>Full Undo/Redo History</p>
+                            <p><strong>Performance:</strong><br>Instant Input Handling</p>
+                            <p><strong>State Mgmt:</strong><br>Full Undo/Redo History</p>
                             <p><strong>Interface:</strong><br>Minimalist Terminal UI</p>
                         </div>
                     </div>
