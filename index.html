@@ -34,6 +34,25 @@
             text-align: center;
             overflow-x: hidden;
         }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--nord0); 
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--nord3); 
+            border-radius: 5px;
+            border: 2px solid var(--nord0); /* Creates padding effect */
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--nord8); 
+        }
 
         /* Layout Container */
         .container {
