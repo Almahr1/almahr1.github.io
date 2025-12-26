@@ -32,7 +32,7 @@
             color: var(--nord4);
             line-height: 1.6;
             text-align: center;
-            overflow-x: hidden; /* Prevent scrollbar when cards expand */
+            overflow-x: hidden;
         }
 
         /* Layout Container */
@@ -50,7 +50,7 @@
             color: var(--nord6);
             font-size: 2.5rem;
             font-weight: 700;
-            margin: 0; /* Removed margin to align with img */
+            margin: 0;
         }
 
         h2 {
@@ -115,12 +115,12 @@
             width: 100%;
         }
 
-        /* New Title Container for Profile Pic + Name */
+        /* Title Container */
         .title-container {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 1.5rem; /* Space between image and text */
+            gap: 1.5rem;
             margin-bottom: 1rem;
         }
 
@@ -130,6 +130,14 @@
             border-radius: 50%;
             border: 2px solid var(--nord8);
             object-fit: cover;
+        }
+        
+        /* New GIF Container */
+        .gif-container {
+            width: 60px; /* Constrain the GIF size */
+            height: auto;
+            display: flex;
+            align-items: center;
         }
 
         .subtitle {
@@ -149,7 +157,7 @@
             flex-direction: column;
             gap: 2rem;
             width: 100%;
-            position: relative; /* Context for expansion */
+            position: relative;
         }
 
         .project-card {
@@ -160,11 +168,10 @@
             transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
             cursor: pointer;
             
-            /* Grid setup for the 3 columns */
             display: grid;
-            grid-template-columns: 0fr 1fr 0fr; /* Collapsed state: side cols are 0 width */
+            grid-template-columns: 0fr 1fr 0fr;
             gap: 0;
-            overflow: hidden; /* Hide the side content when collapsed */
+            overflow: hidden;
         }
 
         .project-card:hover {
@@ -172,24 +179,18 @@
             transform: translateY(-2px);
         }
 
-        /* The Expansion State */
         .project-card.active {
-            /* Expand wider than the container using negative margins */
             margin-left: -10rem;
             margin-right: -10rem;
             padding: 2.5rem;
-            
-            /* Open up the side columns */
             grid-template-columns: 1fr 2fr 1fr;
             gap: 2rem;
-            
-            background-color: var(--nord2); /* Slightly lighter bg when active */
+            background-color: var(--nord2);
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
             transform: scale(1.02);
-            z-index: 10; /* Bring to front */
+            z-index: 10;
         }
 
-        /* Column Styles */
         .card-left, .card-right {
             opacity: 0;
             transition: opacity 0.3s ease;
@@ -197,15 +198,14 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            min-width: 0; /* Prevent grid blowout */
+            min-width: 0;
         }
 
         .active .card-left, .active .card-right {
             opacity: 1;
-            transition-delay: 0.2s; /* Fade in after expansion */
+            transition-delay: 0.2s;
         }
 
-        /* Image Styling (Left Column) */
         .project-img-placeholder {
             width: 100%;
             aspect-ratio: 16/9;
@@ -225,7 +225,6 @@
             border-radius: 8px;
         }
 
-        /* Extra Info Styling (Right Column) */
         .extra-info {
             text-align: left;
             font-size: 0.9rem;
@@ -240,7 +239,6 @@
             margin-bottom: 0.2rem;
         }
 
-        /* Center Column (Main Text) */
         .card-center {
             display: flex;
             flex-direction: column;
@@ -258,7 +256,7 @@
         .tech-tag {
             font-size: 0.8rem;
             font-family: monospace;
-            background-color: var(--nord0); /* Darker contrast in active card */
+            background-color: var(--nord0);
             color: var(--nord6);
             padding: 0.25rem 0.75rem;
             border-radius: 50px;
@@ -276,7 +274,6 @@
             display: none;
         }
 
-        /* Mobile Fix: Disable expansion effect on small screens */
         @media (max-width: 900px) {
             .project-card.active {
                 margin-left: 0;
@@ -284,7 +281,7 @@
                 grid-template-columns: 1fr;
             }
             .card-left, .card-right {
-                display: none; /* Hide sides on mobile */
+                display: none;
             }
         }
 
@@ -313,7 +310,15 @@
         <header>
             <div class="title-container">
                 <img src="https://github.com/almahr1.png" alt="Corrado Böhm" class="profile-pic">
+                
                 <h1>Omar Ziad Almahri</h1>
+
+                <div class="gif-container">
+                    <div class="tenor-gif-embed" data-postid="1281650104235604414" data-share-method="host" data-aspect-ratio="1.4966" data-width="100%">
+                        <a href="https://tenor.com/view/minecraft-minecraft-meme-minecraft-movie-steve-minecraft-spinning-gif-1281650104235604414">Minecraft Minecraft Meme Sticker</a> from <a href="https://tenor.com/search/minecraft-stickers">Minecraft Stickers</a>
+                    </div> 
+                    <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+                </div>
             </div>
             
             <div class="subtitle">Student & Code Tinkerer</div>
@@ -368,9 +373,9 @@
 
                     <div class="card-right">
                         <div class="extra-info">
-                            <p><strong>Status:</strong><br>Bootable (QEMU)</p>
-                            <p><strong>Key Feature:</strong><br>Buddy Allocator</p>
-                            <p><strong>Lines of Code:</strong><br>~3,500</p>
+                            <p><strong>Architecture:</strong><br>32-bit x86 Kernel</p>
+                            <p><strong>Memory:</strong><br>Virtual Memory Manager</p>
+                            <p><strong>System:</strong><br>Custom Standard Library</p>
                         </div>
                     </div>
                 </article>
@@ -398,9 +403,9 @@
 
                     <div class="card-right">
                         <div class="extra-info">
-                            <p><strong>Performance:</strong><br>10k+ pages/hr</p>
-                            <p><strong>Deduplication:</strong><br>Simhash</p>
-                            <p><strong>Middleware:</strong><br>Custom Chain</p>
+                            <p><strong>Concurrency:</strong><br>Parallel Worker Pool</p>
+                            <p><strong>Efficiency:</strong><br>Content Deduplication</p>
+                            <p><strong>Reliability:</strong><br>Polite Rate Limiting</p>
                         </div>
                     </div>
                 </article>
@@ -428,9 +433,9 @@
 
                     <div class="card-right">
                         <div class="extra-info">
-                            <p><strong>Algorithm:</strong><br>Gap Buffer</p>
-                            <p><strong>Undo/Redo:</strong><br>Custom Stack</p>
-                            <p><strong>UI Lib:</strong><br>ncurses</p>
+                            <p><strong>Responsiveness:</strong><br>Instant Input Handling</p>
+                            <p><strong>Features:</strong><br>Full Undo/Redo History</p>
+                            <p><strong>Interface:</strong><br>Minimalist Terminal UI</p>
                         </div>
                     </div>
                 </article>
@@ -450,15 +455,12 @@
 
     <script>
         function toggleCard(element) {
-            // Close any other open cards
             const allCards = document.querySelectorAll('.project-card');
             allCards.forEach(card => {
                 if (card !== element) {
                     card.classList.remove('active');
                 }
             });
-
-            // Toggle the clicked card
             element.classList.toggle('active');
         }
     </script>
