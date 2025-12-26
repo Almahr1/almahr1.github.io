@@ -1,2 +1,260 @@
-# username.github.io
-Personal Site
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Omar Ziad Almahri | Systems Programmer</title>
+    <style>
+        /* Nord Color Palette */
+        :root {
+            /* Polar Night - Backgrounds */
+            --nord0: #2E3440;
+            --nord1: #3B4252;
+            --nord2: #434C5E;
+            --nord3: #4C566A;
+            
+            /* Snow Storm - Text */
+            --nord4: #D8DEE9;
+            --nord5: #E5E9F0;
+            --nord6: #ECEFF4;
+
+            /* Frost - Accents */
+            --nord7: #8FBCBB; /* Teal */
+            --nord8: #88C0D0; /* Cyan */
+            --nord9: #81A1C1; /* Light Blue */
+            --nord10: #5E81AC; /* Dark Blue */
+
+            /* Aurora - Highlights */
+            --nord11: #BF616A; /* Red */
+            --nord14: #A3BE8C; /* Green */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--nord0);
+            color: var(--nord4);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Layout Container */
+        .container {
+            max_width: 800px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        /* Typography */
+        h1, h2, h3 {
+            color: var(--nord6);
+            font-weight: 700;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: -1px;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--nord3);
+            color: var(--nord8);
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--nord7);
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--nord4);
+        }
+
+        a {
+            color: var(--nord8);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--nord7);
+            text-decoration: underline;
+        }
+
+        /* Header Section */
+        header {
+            margin-bottom: 4rem;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--nord3);
+            font-weight: 500;
+        }
+
+        .location {
+            font-size: 0.9rem;
+            color: var(--nord9);
+            margin-top: 0.5rem;
+        }
+
+        /* Project Cards */
+        .project-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .project-card {
+            background-color: var(--nord1);
+            border: 1px solid var(--nord2);
+            padding: 1.5rem;
+            border-radius: 8px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            border-color: var(--nord9);
+        }
+
+        .tech-stack {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .tech-tag {
+            font-size: 0.75rem;
+            font-family: 'Courier New', monospace;
+            background-color: var(--nord2);
+            color: var(--nord6);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 5rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--nord2);
+            font-size: 0.9rem;
+            color: var(--nord3);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        /* Mobile Optimization */
+        @media (max-width: 600px) {
+            .container {
+                padding: 2rem 1.5rem;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Omar Ziad Almahri</h1>
+            <div class="subtitle">Systems Programmer & Student</div>
+            <div class="location">Abu Dhabi, UAE • Grade 12 Elite Stream</div>
+        </header>
+
+        <section id="about">
+            <p>
+                I am a student currently in the Grade 12 Elite Stream, passionate about low-level systems engineering. 
+                While others focus on high-level abstractions, I prefer digging into memory management, kernel development, 
+                and building tools from scratch in C and Go.
+            </p>
+            <p>
+                My work focuses on understanding how computers actually work, from writing custom allocators to 
+                designing efficient text editors.
+            </p>
+        </section>
+
+        <section id="projects">
+            <h2>Featured Engineering</h2>
+
+            <div class="project-grid">
+                <article class="project-card">
+                    <h3>adhDOS</h3>
+                    <div class="tech-stack">
+                        <span class="tech-tag">C</span>
+                        <span class="tech-tag">Assembly</span>
+                        <span class="tech-tag">Kernel Dev</span>
+                    </div>
+                    <p>
+                        A 32-bit operating system kernel built from scratch. Features a custom physical memory manager 
+                        (Buddy System), a slab allocator for kernel objects, and a comprehensive paging system.
+                    </p>
+                    <p>
+                        <em>Concept:</em> Explores "ephemeral computing" via a lossy filesystem design where unused files degrade over time.
+                    </p>
+                    <a href="https://github.com/almahr1/adhdos">View Source &rarr;</a>
+                </article>
+
+                <article class="project-card">
+                    <h3>Quert</h3>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Go</span>
+                        <span class="tech-tag">Concurrency</span>
+                        <span class="tech-tag">Distributed Systems</span>
+                    </div>
+                    <p>
+                        A production-grade, concurrent web crawler. Implements Simhash for content deduplication, 
+                        custom middleware chaining for request handling, and polite per-host rate limiting. 
+                        Architected to handle massive scale without resource leaks.
+                    </p>
+                    <a href="https://github.com/almahr1/quert">View Source &rarr;</a>
+                </article>
+
+                <article class="project-card">
+                    <h3>Ben</h3>
+                    <div class="tech-stack">
+                        <span class="tech-tag">C</span>
+                        <span class="tech-tag">Data Structures</span>
+                        <span class="tech-tag">Gap Buffer</span>
+                    </div>
+                    <p>
+                        A modal text editor that prioritizes efficiency. Implements a Gap Buffer for O(1) insertions 
+                        at the cursor and a custom undo/redo stack. Built to demonstrate that complex tools can 
+                        be engineered with simple, robust C code.
+                    </p>
+                    <a href="https://github.com/almahr1/ben">View Source &rarr;</a>
+                </article>
+            </div>
+        </section>
+
+        <footer>
+            <div>&copy; 2025 Omar Ziad Almahri</div>
+            <div class="social-links">
+                <a href="https://github.com/almahr1">GitHub</a>
+                <a href="https://linkedin.com/in/YOUR_LINKEDIN">LinkedIn</a>
+                <a href="mailto:YOUR_EMAIL@EXAMPLE.COM">Email</a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
