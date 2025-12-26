@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Updates | Omar Ziad Almahri</title>
+    <style>
+        /* Reuse the same Nord CSS from index.html */
+        :root { --nord0: #2E3440; --nord1: #3B4252; --nord2: #434C5E; --nord3: #4C566A; --nord4: #D8DEE9; --nord5: #E5E9F0; --nord6: #ECEFF4; --nord7: #8FBCBB; --nord8: #88C0D0; --nord9: #81A1C1; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', sans-serif; background-color: var(--nord0); color: var(--nord4); line-height: 1.6; text-align: center; }
+        .container { max-width: 700px; margin: 0 auto; padding: 4rem 1.5rem; display: flex; flex-direction: column; align-items: center; }
+        
+        /* Nav Styles */
+        nav { margin-bottom: 3rem; display: flex; gap: 1.5rem; justify-content: center; }
+        nav a { color: var(--nord4); text-decoration: none; font-size: 1.1rem; }
+        nav a:hover, nav a.active { color: var(--nord8); border-bottom: 2px solid var(--nord8); }
+
+        /* Update Entry Styles */
+        .update-entry { text-align: left; width: 100%; border-left: 3px solid var(--nord3); padding-left: 1.5rem; margin-bottom: 3rem; }
+        .date { color: var(--nord9); font-family: monospace; font-size: 0.9rem; margin-bottom: 0.5rem; display: block; }
+        h2 { color: var(--nord6); font-size: 1.4rem; margin-bottom: 1rem; }
+        p { margin-bottom: 1rem; color: var(--nord4); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="updates.html" class="active">Updates</a>
+            <a href="now.html">Now</a>
+        </nav>
+
+        <article class="update-entry">
+            <span class="date">2025-06-15</span>
+            <h2>Refining the Memory Allocator</h2>
+            <p>
+                I spent the weekend debugging a race condition in adhDOS. Turns out my slab allocator
+                wasn't locking correctly during interrupt handling.
+            </p>
+            <p>
+                Fixing this required rewriting the spinlock implementation. It's messy, but it works.
+            </p>
+        </article>
+
+        <article class="update-entry">
+            <span class="date">2025-05-20</span>
+            <h2>Hello World</h2>
+            <p>
+                Finally set up this site. Going to use this section to document my progress 
+                on the kernel and other random low-level experiments.
+            </p>
+        </article>
+        
+        <footer style="margin-top: 3rem; font-size: 0.8rem; color: var(--nord3);">
+            The content of this site is CC BY-SA 4.0. The code is BSD 2-Clause.
+        </footer>
+    </div>
+</body>
+</html>
