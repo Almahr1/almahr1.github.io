@@ -340,7 +340,7 @@ footer {
 
 .social-links { display: flex; gap: 1.5rem; }
 
-/* --- Mobile Responsive (EXTENDED VERTICAL CARDS) --- */
+/* --- Mobile Responsive (CLEAN CENTERED CARDS) --- */
 @media (max-width: 900px) {
     /* Hide hover hint on mobile */
     .hover-hint {
@@ -353,46 +353,39 @@ footer {
         margin-right: 0;
         transform: none;
         box-shadow: none;
+        grid-template-columns: 0fr 1fr 0fr;
+        gap: 0;
     }
 
-    /* Stack everything vertically */
+    /* Keep only center content visible on mobile */
     .project-card {
-        display: flex;
-        flex-direction: column;
-        gap: 1.5rem;
+        display: grid;
+        grid-template-columns: 0fr 1fr 0fr;
+        gap: 0;
         padding: 2rem;
         width: 100%;
     }
 
-    /* Force all sections to be visible */
+    /* Hide side panels on mobile */
     .card-left, .card-right {
-        display: flex;
-        opacity: 1;
-        width: 100%;
+        display: none;
+        opacity: 0;
+        width: 0;
     }
 
-    /* Order: Image on top, Text in middle, Info at bottom */
-    .card-left { order: 1; }
-    .card-center { order: 2; }
-    .card-right { order: 3; }
-    
-    /* Adjust styles for vertical layout */
-    .project-img-placeholder {
-        aspect-ratio: 21/9;
-    }
-    
-    .extra-info {
-        border-left: none;
-        border-top: 2px solid var(--nord9);
-        padding-left: 0;
-        padding-top: 1rem;
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: 1rem;
+    /* Center the main content */
+    .card-center {
+        text-align: center;
         width: 100%;
     }
     
-    .extra-info strong { margin-top: 0; }
+    .card-center p {
+        text-align: center;
+    }
+    
+    .card-center a {
+        display: inline-block;
+    }
 }
 
 @media (max-width: 600px) {
