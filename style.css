@@ -51,7 +51,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    flex: 1; /* Pushes footer down */
+    flex: 1;
 }
 
 /* --- Typography --- */
@@ -174,12 +174,27 @@ header { margin-bottom: 2rem; width: 100%; }
     border-radius: 12px;
     transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
     cursor: pointer;
+    position: relative;
     
     /* Grid layout for expanding effect */
     display: grid;
-    grid-template-columns: 0fr 1fr 0fr; /* Collapsed state */
+    grid-template-columns: 0fr 1fr 0fr;
     gap: 0;
     overflow: hidden;
+}
+
+/* Hover hint styling */
+.hover-hint {
+    font-size: 0.85rem;
+    color: var(--nord9);
+    margin-top: 0.5rem;
+    font-style: italic;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+
+.project-card:hover .hover-hint {
+    opacity: 0;
 }
 
 /* Hover State - Expands the card */
@@ -187,7 +202,7 @@ header { margin-bottom: 2rem; width: 100%; }
     margin-left: -10rem;
     margin-right: -10rem;
     padding: 2.5rem;
-    grid-template-columns: 1fr 2fr 1fr; /* Expanded state */
+    grid-template-columns: 1fr 2fr 1fr;
     gap: 2rem;
     background-color: var(--nord2);
     border-color: var(--nord9);
@@ -198,7 +213,7 @@ header { margin-bottom: 2rem; width: 100%; }
 
 .card-left, .card-right {
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.4s ease;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -242,7 +257,12 @@ header { margin-bottom: 2rem; width: 100%; }
 }
 
 .extra-info strong:first-child { margin-top: 0; }
-.card-center { display: flex; flex-direction: column; justify-content: center; }
+.card-center { 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center;
+    min-width: 0;
+}
 
 .tech-stack {
     display: flex;
@@ -322,6 +342,11 @@ footer {
 
 /* --- Mobile Responsive (EXTENDED VERTICAL CARDS) --- */
 @media (max-width: 900px) {
+    /* Hide hover hint on mobile */
+    .hover-hint {
+        display: none;
+    }
+
     /* Reset the hover effects for mobile */
     .project-card:hover {
         margin-left: 0;
@@ -353,7 +378,7 @@ footer {
     
     /* Adjust styles for vertical layout */
     .project-img-placeholder {
-        aspect-ratio: 21/9; /* Slightly shorter on mobile */
+        aspect-ratio: 21/9;
     }
     
     .extra-info {
@@ -362,7 +387,7 @@ footer {
         padding-left: 0;
         padding-top: 1rem;
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr; /* Grid for info bits */
+        grid-template-columns: 1fr 1fr 1fr;
         gap: 1rem;
         width: 100%;
     }
