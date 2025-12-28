@@ -54,7 +54,7 @@
             <h2>Things I've Built</h2>
 
             <div class="project-grid">
-                <article class="project-card" onclick="toggleCard(this)">
+                <article class="project-card">
                     <div class="card-left">
                         <div class="project-img-placeholder">
                             <span>💿</span>
@@ -69,15 +69,14 @@
                             <span class="tech-tag">OS Dev</span>
                         </div>
                         <p>
-                            A 32-bit operating system kernel I wrote from scratch with the help of the <a href="https://wiki.osdev.org/Main_Page" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">OSDev Wiki</a>. It handles physical memory, 
+                            A 32-bit operating system kernel I wrote from scratch with the help of the <a href="https://wiki.osdev.org/Main_Page" target="_blank" rel="noopener noreferrer">OSDev Wiki</a>. It handles physical memory, 
                             allocates kernel objects, and manages paging.
                         </p>
                         <p>
                             <em>The *Planned* Twist:</em> It has a "lossy filesystem" concept—basically, if you don't open 
                             your files often enough, the OS might just delete them.
                         </p>
-                        <a href="https://github.com/almahr1/adhdos" onclick="event.stopPropagation()">Check out the code &rarr;</a>
-                        <div class="click-hint">(Click card to expand)</div>
+                        <a href="https://github.com/almahr1/adhdos">Check out the code &rarr;</a>
                     </div>
 
                     <div class="card-right">
@@ -89,7 +88,7 @@
                     </div>
                 </article>
 
-                <article class="project-card" onclick="toggleCard(this)">
+                <article class="project-card">
                     <div class="card-left">
                         <div class="project-img-placeholder">
                             <span>🕸️</span>
@@ -106,8 +105,7 @@
                             A heavy-duty web crawler. I built it to handle thousands of pages without crashing. 
                             It uses content fingerprinting to spot duplicate content and respects rate limits so it doesn't get blocked.
                         </p>
-                        <a href="https://github.com/almahr1/quert" onclick="event.stopPropagation()">Check out the code &rarr;</a>
-                        <div class="click-hint">(Click card to expand)</div>
+                        <a href="https://github.com/almahr1/quert">Check out the code &rarr;</a>
                     </div>
 
                     <div class="card-right">
@@ -119,7 +117,7 @@
                     </div>
                 </article>
 
-                <article class="project-card" onclick="toggleCard(this)">
+                <article class="project-card">
                     <div class="card-left">
                         <div class="project-img-placeholder">
                             <span>📝</span>
@@ -136,8 +134,7 @@
                             A text editor I made because I wanted to understand how they work. It uses optimized data
                             structures for fast typing and has a custom undo/redo stack. Simple, fast, and works in the terminal.
                         </p>
-                        <a href="https://github.com/almahr1/ben" onclick="event.stopPropagation()">Check out the code &rarr;</a>
-                        <div class="click-hint">(Click card to expand)</div>
+                        <a href="https://github.com/almahr1/ben">Check out the code &rarr;</a>
                     </div>
 
                     <div class="card-right">
@@ -161,23 +158,5 @@
             <div>&copy; 2025 Omar Ziad Almahri. All rights reserved.</div>
         </footer>
     </div>
-
-    <script>
-        function toggleCard(element) {
-            const allCards = document.querySelectorAll('.project-card');
-            // Check if mobile view (matching the CSS breakpoint)
-            const isMobile = window.innerWidth <= 900;
-            
-            // On mobile, simple toggle without the fancy expansion logic
-            if(isMobile) return;
-
-            allCards.forEach(card => {
-                if (card !== element) {
-                    card.classList.remove('active');
-                }
-            });
-            element.classList.toggle('active');
-        }
-    </script>
 </body>
 </html>
