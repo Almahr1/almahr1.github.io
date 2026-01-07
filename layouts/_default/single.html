@@ -1,15 +1,13 @@
 {{ define "main" }}
 <div class="page-content" style="margin-top: 2rem; text-align: left; max-width: 700px; width: 100%;">
     
-    {{/* Title and Date */}}
-    <header style="margin-bottom: 2rem; border-bottom: 1px solid var(--nord3); padding-bottom: 1rem;">
+    <header style="text-align: center; margin-bottom: 2rem; border-bottom: 1px solid var(--nord3); padding-bottom: 1rem;">
         <h1 style="font-size: 2rem; color: var(--nord8); margin-bottom: 0.5rem;">{{ .Title }}</h1>
         {{ if .Date }}
             <span style="font-family: monospace; color: var(--nord9);">{{ .Date.Format "2006-01-02" }}</span>
         {{ end }}
     </header>
 
-    {{/* The Actual Markdown Content */}}
     <div class="content-body">
         {{ .Content }}
     </div>
