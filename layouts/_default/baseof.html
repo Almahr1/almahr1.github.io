@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+
+    <meta name="description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+    
+    <link rel="icon" href="https://github.com/almahr1.png" type="image/png">
+    
+    <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
+</head>
+<body>
+    <div class="container">
+        
+        {{/* --- HEADER LOGIC --- */}}
+        {{ if .IsHome }}
+            {{/* Homepage gets the full Profile Header */}}
+            <header>
+                <div class="title-container">
+                    <div style="display: flex; flex-direction: column; align-items: center;">
+                        <img src="https://github.com/almahr1.png" alt="Profile Picture" class="profile-pic">
+                        <span style="font-size: 0.7rem; color: var(--nord3); margin-top: 5px;">(PFP: Corrado Böhm)</span>
+                    </div>
+                    <h1>{{ .Site.Title }}</h1>
+                </div>
+                
+                <div class="subtitle">Student & Code Tinkerer</div>
+                <div class="location">Abu Dhabi, UAE • Grade 12 Elite Stream</div>
+
+                {{/* Navigation Partial (Defined below inline for simplicity, or move to partials later) */}}
+                <nav>
+                    <a href="{{ .Site.BaseURL }}" class="{{ if .IsHome }}active{{ end }}">Home</a>
+                    <a href="{{ "posts" | relURL }}" class="{{ if eq .Section "posts" }}active{{ end }}">Updates</a>
+                    <a href="{{ "now" | relURL }}" class="{{ if eq .Section "now" }}active{{ end }}">Now</a>
+                </nav>
+            </header>
+        {{ else }}
+            {{/* Other pages just get the Navigation */}}
+            <nav>
+                <a href="{{ .Site.BaseURL }}">Home</a>
+                <a href="{{ "posts" | relURL }}" class="{{ if eq .Section "posts" }}active{{ end }}">Updates</a>
+                <a href="{{ "now" | relURL }}" class="{{ if eq .Section "now" }}active{{ end }}">Now</a>
+            </nav>
+        {{ end }}
+
+        {{/* --- MAIN CONTENT BLOCK --- */}}
+        {{/* This is where the content from index.html or your markdown files will be injected */}}
+        {{ block "main" . }}{{ end }}
+
+        {{/* --- FOOTER --- */}}
+        <footer>
+            {{ if .IsHome }}
+            <div class="social-links">
+                <a href="https://github.com/almahr1">GitHub</a>
+                <a href="https://www.linkedin.com/in/omar-almahri-50a536391/">LinkedIn</a>
+                <a href="mailto:omar.1.almarhi@gmail.com">Email</a>
+            </div>
+            {{ end }}
+            
+            <div>&copy; {{ now.Year }} Omar Ziad Almahri. All rights reserved.</div>
+        </footer>
+    </div>
+</body>
+</html>

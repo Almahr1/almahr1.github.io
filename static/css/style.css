@@ -1,0 +1,420 @@
+/* --- Unified Nord Color Palette --- */
+:root {
+    --nord0: #2E3440; /* Polar Night */
+    --nord1: #3B4252;
+    --nord2: #434C5E;
+    --nord3: #4C566A;
+    --nord4: #D8DEE9; /* Snow Storm */
+    --nord5: #E5E9F0;
+    --nord6: #ECEFF4;
+    --nord7: #8FBCBB; /* Frost */
+    --nord8: #88C0D0;
+    --nord9: #81A1C1;
+    --nord10: #5E81AC;
+}
+
+/* --- Global Reset & Body --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--nord0);
+    color: var(--nord4);
+    line-height: 1.6;
+    text-align: center;
+    overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--nord0); }
+::-webkit-scrollbar-thumb {
+    background: var(--nord3); 
+    border-radius: 5px;
+    border: 2px solid var(--nord0);
+}
+::-webkit-scrollbar-thumb:hover { background: var(--nord8); }
+
+/* --- Layout Container --- */
+.container {
+    max-width: 700px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 4rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+}
+
+/* --- Typography --- */
+h1 {
+    color: var(--nord6);
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.2;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    color: var(--nord8);
+    border-bottom: 2px solid var(--nord3);
+    display: inline-block;
+    padding-bottom: 0.5rem;
+}
+
+h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: var(--nord7);
+}
+
+p {
+    margin-bottom: 1rem;
+    color: var(--nord4);
+}
+
+a {
+    color: var(--nord8);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+a:hover { color: var(--nord7); }
+
+/* --- Navigation --- */
+nav {
+    margin-top: 1.5rem;
+    margin-bottom: 3rem;
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap; 
+}
+
+nav a {
+    color: var(--nord4);
+    font-size: 1.1rem;
+    padding-bottom: 0.2rem;
+    border-bottom: 2px solid transparent; 
+}
+
+nav a:hover {
+    color: var(--nord8);
+    border-bottom: 2px solid var(--nord8);
+}
+
+nav a.active {
+    color: var(--nord8);
+    border-bottom: 2px solid var(--nord8);
+    font-weight: 600;
+}
+
+/* --- Header Elements --- */
+header { margin-bottom: 2rem; width: 100%; }
+
+.title-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.profile-pic {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 2px solid var(--nord8);
+    object-fit: cover;
+}
+
+.gif-container {
+    width: 80px; 
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gif-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.subtitle { font-size: 1.1rem; color: var(--nord3); margin-bottom: 0.5rem; }
+.location { font-size: 0.9rem; color: var(--nord9); }
+
+/* --- Project Cards (HOVER EFFECT) --- */
+.project-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+    position: relative;
+}
+
+.project-card {
+    background-color: var(--nord1);
+    border: 1px solid var(--nord2);
+    padding: 2rem;
+    border-radius: 12px;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    cursor: pointer;
+    position: relative;
+    
+    /* Grid layout for expanding effect */
+    display: grid;
+    grid-template-columns: 0fr 1fr 0fr;
+    gap: 0;
+    overflow: hidden;
+}
+
+/* Hover hint styling */
+.hover-hint {
+    font-size: 0.85rem;
+    color: var(--nord9);
+    margin-top: 0.5rem;
+    font-style: italic;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+
+.project-card:hover .hover-hint {
+    opacity: 0;
+}
+
+/* Hover State - Expands the card */
+.project-card:hover {
+    margin-left: -10rem;
+    margin-right: -10rem;
+    padding: 2.5rem;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 2rem;
+    background-color: var(--nord2);
+    border-color: var(--nord9);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    transform: scale(1.02);
+    z-index: 10;
+}
+
+.card-left, .card-right {
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 0;
+}
+
+/* Show sides on hover */
+.project-card:hover .card-left, 
+.project-card:hover .card-right {
+    opacity: 1;
+    transition-delay: 0.2s;
+}
+
+.project-img-placeholder {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background-color: var(--nord3);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--nord6);
+    font-size: 2rem;
+}
+
+.extra-info {
+    text-align: left;
+    font-size: 0.9rem;
+    color: var(--nord4);
+    border-left: 2px solid var(--nord9);
+    padding-left: 1rem;
+    line-height: 1.5;
+}
+
+.extra-info strong {
+    color: var(--nord8);
+    display: block;
+    margin-bottom: 0.1rem;
+    margin-top: 0.8rem;
+}
+
+.extra-info strong:first-child { margin-top: 0; }
+.card-center { 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center;
+    min-width: 0;
+}
+
+.tech-stack {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.tech-tag {
+    font-size: 0.8rem;
+    font-family: monospace;
+    background-color: var(--nord0);
+    color: var(--nord6);
+    padding: 0.25rem 0.75rem;
+    border-radius: 50px;
+}
+
+/* --- Updates & Now Pages --- */
+.page-content {
+    text-align: left;
+    width: 100%;
+}
+
+.page-content h2, 
+.update-entry h2 {
+    display: block;
+    text-align: left;
+    border-bottom: none;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.page-content h2 {
+    border-bottom: 1px solid var(--nord3);
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+}
+
+.update-entry {
+    text-align: left;
+    width: 100%;
+    border-left: 3px solid var(--nord3);
+    padding-left: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.date {
+    color: var(--nord9);
+    font-family: monospace;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.page-content ul { list-style-type: disc; margin-bottom: 1.5rem; }
+.page-content li { margin-bottom: 0.5rem; margin-left: 1.5rem; color: var(--nord4); }
+
+/* --- Footer --- */
+footer {
+    margin-top: auto;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    border-top: 1px solid var(--nord2);
+    width: 100%;
+    max-width: 700px;
+    font-size: 0.9rem;
+    color: var(--nord3);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    align-self: center;
+}
+
+.social-links { display: flex; gap: 1.5rem; }
+
+/* --- Mobile Responsive (CLEAN CENTERED CARDS) --- */
+@media (max-width: 900px) {
+    /* Hide hover hint on mobile */
+    .hover-hint {
+        display: none;
+    }
+
+    /* Switch to simple flexbox layout on mobile */
+    .project-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 1.5rem;
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Reset hover effects completely on mobile */
+    .project-card:hover {
+        margin-left: 0;
+        margin-right: 0;
+        transform: none;
+        box-shadow: none;
+        padding: 1.5rem;
+        background-color: var(--nord1);
+        border-color: var(--nord2);
+    }
+
+    /* Hide side panels completely on mobile */
+    .card-left, 
+    .card-right {
+        display: none !important;
+    }
+
+    /* Center and constrain the main content */
+    .card-center {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .card-center h3 {
+        text-align: center;
+    }
+    
+    .card-center p {
+        text-align: center;
+        width: 100%;
+    }
+    
+    .card-center a {
+        display: inline-block;
+        text-align: center;
+    }
+
+    .tech-stack {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .container { padding: 2rem 1rem; }
+    h1 { font-size: 2rem; }
+    .project-card { padding: 1.5rem; }
+    
+    /* Stack the extra info vertically on very small screens */
+    .extra-info {
+        grid-template-columns: 1fr;
+        border-top: 1px solid var(--nord3);
+    }
+    
+    nav { gap: 1rem; }
+    .title-container { flex-direction: column; text-align: center; }
+    .gif-container { display: none; }
+}
