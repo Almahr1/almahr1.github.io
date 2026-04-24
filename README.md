@@ -1,2 +1,2 @@
 # Personal Site
-<almahr1.github.io>Site
+[Site](almahr1.github.io)
